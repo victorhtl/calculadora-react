@@ -3,14 +3,16 @@ import './Button.css'
 
 export default props => {
     
-    // defines css class depending on operation attr
+    // defines css class depending on operation's attr
     let classes = 'button ';
     classes += props.operation ? 'operation' : '';
-    classes += props.operation ? 'double' : '';
-    classes += props.operation ? 'triple' : '' 
+    classes += props.double ? 'double' : '';
+    classes += props.triple ? 'triple' : '' 
 
     return (
-        <button className={classes}>
+        <button 
+            onClick={e => props.click && props.click(props.label)}
+            className={classes}>
             {props.label}
         </button>
    )
